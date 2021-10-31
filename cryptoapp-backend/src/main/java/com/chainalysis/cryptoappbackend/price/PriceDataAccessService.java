@@ -14,17 +14,22 @@ public class PriceDataAccessService implements PriceDao {
 
     public PriceDataAccessService() {
         prices = new HashMap<>();
-        prices.put("BTC", new HashMap<String, Queue<Price>>());
-        prices.put("ETH", new HashMap<String, Queue<Price>>());
-        prices.get("BTC").put("Binance", new LinkedList<Price>());
-        prices.get("BTC").put("Coinbase", new LinkedList<Price>());
-        prices.get("ETH").put("Binance", new LinkedList<Price>());
-        prices.get("ETH").put("Coinbase", new LinkedList<Price>());
+        prices.put("BTC", new HashMap<>());
+        prices.put("ETH", new HashMap<>());
+        prices.get("BTC").put("Binance", new LinkedList<>());
+        prices.get("BTC").put("Coinbase", new LinkedList<>());
+        prices.get("ETH").put("Binance", new LinkedList<>());
+        prices.get("ETH").put("Coinbase", new LinkedList<>());
     }
 
     @Override
     public int addPrice(Price price, String exchange) {
-        prices.get(price.getSymbol().substring(0,3)).get(exchange).add(price);
+        String symbol = price.getSymbol().substring(0,3);
+        Queue<Price> listToAddTo = prices.get(symbol).get(exchange);
+        listToAddTo.add(price);
+        if (listToAddTo.size() > 20) {
+            listToAddTo.remove();
+        }
         return 1;
     }
 

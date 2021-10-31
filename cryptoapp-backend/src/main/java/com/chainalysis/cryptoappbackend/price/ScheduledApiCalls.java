@@ -14,8 +14,7 @@ import java.time.LocalDateTime;
 
 @Component
 public class ScheduledApiCalls {
-
-
+    
     private static PriceService priceService;
 
     @Autowired
@@ -50,7 +49,7 @@ public class ScheduledApiCalls {
         String qSymbol = symbol+"USDT";
         String URI = baseURI + qSymbol;
         PriceFromBinance priceFromBinance = template.getForObject(URI, PriceFromBinance.class);
-        Price price = new Price(priceFromBinance.getSymbol(),
+        Price price = new Price(symbol,
                 Double.parseDouble(priceFromBinance.getBidPrice()),
                 Double.parseDouble(priceFromBinance.getAskPrice()),
                 dateTime);
@@ -64,7 +63,6 @@ public class ScheduledApiCalls {
         String URIBuy = baseURI + qSymbol + "/buy";
         PriceFromCoinbase priceFromCoinbaseSell = template.getForObject(URISell, PriceFromCoinbase.class);
         PriceFromCoinbase priceFromCoinbaseBuy = template.getForObject(URIBuy, PriceFromCoinbase.class);
-        System.out.println("Coinbase amount query:" + priceFromCoinbaseBuy.getData().get("amount"));
         Price price = new Price(symbol,
                 Double.parseDouble(priceFromCoinbaseSell.getData().get("amount")),
                 Double.parseDouble(priceFromCoinbaseBuy.getData().get("amount")),
