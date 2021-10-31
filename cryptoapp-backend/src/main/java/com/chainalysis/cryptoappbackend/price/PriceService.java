@@ -1,21 +1,27 @@
 package com.chainalysis.cryptoappbackend.price;
 
-import org.springframework.scheduling.annotation.Scheduled;
+import com.chainalysis.cryptoappbackend.price.models.Price;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Queue;
 
 @Service
 public class PriceService {
 
-    public List<Price> getPrices() {
-        return List.of();
+    private final PriceDataAccessService dataAccessService;
+
+    @Autowired
+    public PriceService(PriceDataAccessService dataAccessService) {
+        this.dataAccessService = dataAccessService;
     }
 
-    @Scheduled
-    public List<Price> callApis() {
-
-        return List.of()
+    public HashMap<String, HashMap<String, Queue<Price>>> getPrices() {
+        return dataAccessService.getPrices();
     }
 
+    public int addPrice(Price newPrice, String exchange) {
+        return dataAccessService.addPrice(newPrice, exchange);
+    }
 }
