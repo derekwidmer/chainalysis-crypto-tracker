@@ -11,7 +11,7 @@ export default function CryptoCard(props) {
 					</h5>
 				</div>
 				<div className="card-body">
-					<h5 className="card-text px-1 pb-1">Price:</h5>
+					<h5 className="card-text px-1 pb-1">Price: </h5>
 				</div>
 			</div>
 		</div >

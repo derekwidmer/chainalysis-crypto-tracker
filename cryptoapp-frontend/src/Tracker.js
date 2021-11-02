@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CryptoCard from './CryptoCard'
 import { bitcoin, ethereum } from '../src/icons'
 import axios from 'axios';
+import useInterval from './hooks';
 
 export default function Tracker(props) {
 
@@ -10,17 +11,20 @@ export default function Tracker(props) {
 		headers: { 'Content-Type': 'application/json' }
 	});
 
-	useEffect(() => {
+	const [data, setData] = useState();
+
+	useInterval(() => {
 		axiosInstance.get().then(res => {
-			console.log(res)
+			setData(res.data);
+			console.log(res.data)
 		}).catch(error => console.log(error))
-	})
+	}, 5000)
 
 	return (
 		<div className="tracker d-flex justify-content-center align-items-center">
 			<div className="row">
-				<CryptoCard ticker={"BTC"} icon={bitcoin} />
-				<CryptoCard ticker={"ETH"} icon={ethereum} />
+				<CryptoCard ticker={"BTC"} icon={bitcoin} data={data} />
+				<CryptoCard ticker={"ETH"} icon={ethereum} data={data} />
 			</div>
 		</div>
 	)
