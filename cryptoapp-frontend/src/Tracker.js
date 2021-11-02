@@ -1,6 +1,6 @@
 import React from 'react'
 import CryptoCard from './CryptoCard'
-import { bitcoin, ethereum } from 'icons/icons'
+import { bitcoin, ethereum } from '../src/icons'
 
 export default function Tracker(props) {
 	return (
