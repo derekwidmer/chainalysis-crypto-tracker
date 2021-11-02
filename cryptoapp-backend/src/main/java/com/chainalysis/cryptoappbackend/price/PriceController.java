@@ -3,6 +3,7 @@ package com.chainalysis.cryptoappbackend.price;
 import com.chainalysis.cryptoappbackend.price.models.Price;
 import com.chainalysis.cryptoappbackend.price.models.PriceFromBinance;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,7 @@ public class PriceController {
         this.priceService = priceService;
     }
 
+    @CrossOrigin
     @GetMapping
     public HashMap<String, HashMap<String, Queue<Price>>> getPrices() {
         return priceService.getPrices();
