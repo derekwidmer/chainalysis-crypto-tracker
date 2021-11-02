@@ -31,4 +31,10 @@ html {
   font-weight: 700;
   margin-bottom: 0;
 }
+
+.icon {
+  -webkit-filter: invert(98%) sepia(9%) saturate(252%) hue-rotate(223deg) brightness(116%) contrast(100%);
+          filter: invert(98%) sepia(9%) saturate(252%) hue-rotate(223deg) brightness(116%) contrast(100%);
+  width: 2.5rem;
+}
 /*# sourceMappingURL=main.css.map */
