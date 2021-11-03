@@ -20,10 +20,35 @@
 .crypto-title {
 	color: white;
 	font-weight: 700;
+	font-size: 1.5rem;
 	margin-bottom: 0;
 }
 
 .icon {
 	filter: invert(98%) sepia(9%) saturate(252%) hue-rotate(223deg) brightness(116%) contrast(100%);
 	width: 2.5rem;
+}
+
+.price-label {
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+.section-title {
+	font-weight: 700;
+	font-size: 1.3rem;
+}
+
+.price-num {
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+.increase {
+	color: rgb(0, 206, 0);
+}
+.decrease {
+	color: rgb(201, 48, 48);
+}
+.stagnant {
+	color: black;
 }
