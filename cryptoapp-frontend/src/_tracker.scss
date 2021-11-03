@@ -5,7 +5,7 @@
 }
 
 .crypto-card {
-	width: 18rem;
+	width: 30rem;
 	border-radius: 2rem;
 	overflow: hidden;
 	border: none;
@@ -40,6 +40,7 @@
 }
 
 .price-num {
+	width: 100%;
 	font-size: 1.2rem;
 	font-weight: 700;
 }
@@ -58,4 +59,12 @@
 }
 .suggestion-badge {
 	font-size: .8rem;
+}
+
+.caret {
+	font-size: 1.1rem;
+}
+.caret-container {
+	height: 1.2rem;
+	width: 1.2rem;
 }

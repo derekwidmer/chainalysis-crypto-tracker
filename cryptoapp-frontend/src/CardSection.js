@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown, faCaretUp, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 export default function CardSection(props) {
 	const valueName = `${props.action.toLowerCase()}Price`
@@ -34,6 +36,16 @@ export default function CardSection(props) {
 		}
 	}
 
+	const caret = (string) => {
+		if (string === "increase") {
+			// return <FontAwesomeIcon icon={faCaretUp} className={`caret ${string}`} />
+			return <></>
+		} else if (string === "decrease") {
+			// return <FontAwesomeIcon icon={faCaretDown} />
+			return <></>
+		}
+	}
+
 	return (
 		<div className="my-2">
 			<div className="d-flex align-items-center justify-content-between">
@@ -42,15 +54,20 @@ export default function CardSection(props) {
 			</div>
 			<div className="d-flex flex-column justify-content-between mb-2">
 				<div className="row">
-					<div className="col-4">
+					<div className="col-3">
 						<div className="price-label">Binance</div>
 					</div>
-					<div className="col-4 d-flex justify-content-center">
-						<span className={`price-num ms-auto ${checkChange(binancePrices, valueName)}`}>
-							{latestBinance.toLocaleString()}
-						</span>
+					<div className="col-6 d-flex justify-content-center">
+						<div className={`price-num ${checkChange(binancePrices, valueName)}`}>
+							<div className="w-100">
+								{latestBinance.toLocaleString()}
+							</div>
+						</div>
+						<div className="caret-container">
+							{caret(checkChange(binancePrices, valueName))}
+						</div>
 					</div>
-					<div className="col-4 d-flex justify-content-end align-items-center">
+					<div className="col-3 d-flex justify-content-end align-items-center">
 						<div className="d-flex justify-content-center">
 							{renderBadgeCheck(latestBinance, latestCoinbase) ?
 								<span class="badge bg-success">{props.action}</span> :
@@ -59,15 +76,18 @@ export default function CardSection(props) {
 					</div>
 				</div>
 				<div className="row">
-					<div className="col-4">
+					<div className="col-3">
 						<div className="price-label">Coinbase</div>
 					</div>
-					<div className="col-4 d-flex justify-content-center">
-						<span className={`price-num ms-auto ${checkChange(coinbasePrices, valueName)}`}>
+					<div className="col-6 d-flex">
+						<div className={`price-num ms-auto ${checkChange(coinbasePrices, valueName)}`}>
 							{latestCoinbase.toLocaleString()}
-						</span>
+						</div>
+						<div className="caret-container">
+							{caret(checkChange(coinbasePrices, valueName))}
+						</div>
 					</div>
-					<div className="col-4 d-flex justify-content-end align-items-center">
+					<div className="col-3 d-flex justify-content-end align-items-center">
 						<div className="d-flex justify-content-center">
 							{renderBadgeCheck(latestCoinbase, latestBinance) ?
 								<span class="badge bg-success suggestion-badge">{props.action}</span> :
@@ -76,6 +96,6 @@ export default function CardSection(props) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</div >
 	)
 }

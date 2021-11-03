@@ -8,8 +8,8 @@ export default function CryptoCard(props) {
 	useEffect(() => console.log("Price data for ", props.ticker, ":", priceData));
 
 	return (
-		<div className=" col-12 col-lg-6 p-3 d-flex justify-content-center align-items-center">
-			<div className="card crypto-card" style={{ width: "25rem" }}>
+		<div className="col-12 p-3 d-flex justify-content-center align-items-center">
+			<div className="card crypto-card">
 				<div className="card-body upper-body">
 					<h5 className="card-title crypto-title px-2 d-flex align-items-center">
 						{props.ticker}
@@ -17,10 +17,10 @@ export default function CryptoCard(props) {
 					</h5>
 				</div>
 				<div className="card-body">
-					<div className="px-1 pb-1">
+					<div className="px-1">
 						<div className="d-flex flex-column">
-							<CardSection action="Buy" data={priceData}/>
-							<CardSection action="Sell" data={priceData}/>
+							<CardSection action="Buy" data={priceData} />
+							<CardSection action="Sell" data={priceData} />
 						</div>
 					</div>
 				</div>
