@@ -21,25 +21,6 @@ export default function CryptoCard(props) {
 						<div className="d-flex flex-column">
 							<CardSection action="Buy" data={priceData}/>
 							<CardSection action="Sell" data={priceData}/>
-							{/* <div className="d-flex justify-content-between mb-2">
-								<div className="price-label">Coinbase</div>
-								<span className={`price-num ms-auto ${checkChange(coinbasePrices, "buyPrice")}`}>
-									{latestPriceCoinbase["buyPrice"]}
-								</span>
-							</div>
-							<h5 className="card-text section-title">Sell</h5>
-							<div className="d-flex justify-content-between mb-2">
-								<div className="price-label">Binance</div>
-								<span className={`price-num ms-auto ${checkChange(coinbasePrices, "buyPrice")}`}>
-									{latestPriceCoinbase["buyPrice"]}
-								</span>
-							</div>
-							<div className="d-flex justify-content-between mb-2">
-								<div className="price-label">Coinbase</div>
-								<span className={`price-num ms-auto ${checkChange(coinbasePrices, "sellPrice")}`}>
-									{latestPriceCoinbase["sellPrice"]}
-								</span>
-							</div> */}
 						</div>
 					</div>
 				</div>
