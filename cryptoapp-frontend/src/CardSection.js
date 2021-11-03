@@ -35,7 +35,7 @@ export default function CardSection(props) {
 	}
 
 	return (
-		<div>
+		<div className="my-2">
 			<div className="d-flex align-items-center justify-content-between">
 				<h5 className="card-text section-title mb-1">{props.action}</h5>
 				<h6 className="card-text suggestion">Suggestion</h6>
@@ -47,7 +47,7 @@ export default function CardSection(props) {
 					</div>
 					<div className="col-4 d-flex justify-content-center">
 						<span className={`price-num ms-auto ${checkChange(binancePrices, valueName)}`}>
-							{latestBinance}
+							{latestBinance.toLocaleString()}
 						</span>
 					</div>
 					<div className="col-4 d-flex justify-content-end align-items-center">
@@ -64,13 +64,13 @@ export default function CardSection(props) {
 					</div>
 					<div className="col-4 d-flex justify-content-center">
 						<span className={`price-num ms-auto ${checkChange(coinbasePrices, valueName)}`}>
-							{latestCoinbase}
+							{latestCoinbase.toLocaleString()}
 						</span>
 					</div>
 					<div className="col-4 d-flex justify-content-end align-items-center">
 						<div className="d-flex justify-content-center">
 							{renderBadgeCheck(latestCoinbase, latestBinance) ?
-								<span class="badge bg-success">{props.action}</span> :
+								<span class="badge bg-success suggestion-badge">{props.action}</span> :
 								<></>}
 						</div>
 					</div>
