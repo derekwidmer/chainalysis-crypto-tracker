@@ -38,12 +38,10 @@ export default function CardSection(props) {
 
 	const caret = (string) => {
 		if (string === "increase") {
-			// return <FontAwesomeIcon icon={faCaretUp} className={`caret ${string}`} />
-			return <></>
+			return <FontAwesomeIcon icon={faCaretUp} className={`caret ${string}`} />
 		} else if (string === "decrease") {
-			// return <FontAwesomeIcon icon={faCaretDown} />
-			return <></>
-		}
+			return <FontAwesomeIcon icon={faCaretDown} className={`caret ${string}`} />
+		} else return <FontAwesomeIcon icon={faCaretRight} />
 	}
 
 	return (
@@ -54,10 +52,10 @@ export default function CardSection(props) {
 			</div>
 			<div className="d-flex flex-column justify-content-between mb-2">
 				<div className="row">
-					<div className="col-3">
+					<div className="col-4">
 						<div className="price-label">Binance</div>
 					</div>
-					<div className="col-6 d-flex justify-content-center">
+					<div className="col-5 d-flex justify-content-center">
 						<div className={`price-num ${checkChange(binancePrices, valueName)}`}>
 							<div className="w-100">
 								{latestBinance.toLocaleString()}
@@ -76,12 +74,14 @@ export default function CardSection(props) {
 					</div>
 				</div>
 				<div className="row">
-					<div className="col-3">
+					<div className="col-4">
 						<div className="price-label">Coinbase</div>
 					</div>
-					<div className="col-6 d-flex">
+					<div className="col-5 d-flex">
 						<div className={`price-num ms-auto ${checkChange(coinbasePrices, valueName)}`}>
-							{latestCoinbase.toLocaleString()}
+							<div className="w-100">
+								{latestCoinbase.toLocaleString()}
+							</div>
 						</div>
 						<div className="caret-container">
 							{caret(checkChange(coinbasePrices, valueName))}

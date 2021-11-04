@@ -26,7 +26,8 @@ export default function Tracker(props) {
 	return (
 		<div className="tracker">
 			<div className="container">
-				<div className="d-flex justify-content-center align-items-center">
+				<div className="d-flex flex-column justify-content-center align-items-center vh-100">
+					<h1 className="text-center mb-4">Cryptocurrency Tracker</h1>
 					<div className="row">
 						<CryptoCard ticker={"BTC"} icon={bitcoin} data={data} />
 						<CryptoCard ticker={"ETH"} icon={ethereum} data={data} />

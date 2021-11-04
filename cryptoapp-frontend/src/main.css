@@ -14,7 +14,7 @@ html {
 }
 
 .crypto-card {
-  width: 30rem;
+  width: 22rem;
   border-radius: 2rem;
   overflow: hidden;
   border: none;
@@ -23,7 +23,7 @@ html {
 }
 
 .upper-body {
-  background-color: blue;
+  background-color: #1a1a96;
 }
 
 .crypto-title {
@@ -80,7 +80,16 @@ html {
 }
 
 .caret-container {
-  height: 1.2rem;
-  width: 1.2rem;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=main.css.map */

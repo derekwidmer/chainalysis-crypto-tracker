@@ -8,7 +8,7 @@ export default function CryptoCard(props) {
 	useEffect(() => console.log("Price data for ", props.ticker, ":", priceData));
 
 	return (
-		<div className="col-12 p-3 d-flex justify-content-center align-items-center">
+		<div className="col-xl-6 col-12 p-3 d-flex justify-content-center align-items-center">
 			<div className="card crypto-card">
 				<div className="card-body upper-body">
 					<h5 className="card-title crypto-title px-2 d-flex align-items-center">
