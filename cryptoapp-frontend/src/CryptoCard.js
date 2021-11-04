@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import CardSection from './CardSection';
 
 export default function CryptoCard(props) {
 
 	const priceData = props.data ? props.data[props.ticker] : {};
-
-	useEffect(() => console.log("Price data for ", props.ticker, ":", priceData));
 
 	return (
 		<div className="col-xl-6 col-12 p-3 d-flex justify-content-center align-items-center">

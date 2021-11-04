@@ -50,8 +50,8 @@ public class ScheduledApiCalls {
         String URI = baseURI + qSymbol;
         PriceFromBinance priceFromBinance = template.getForObject(URI, PriceFromBinance.class);
         Price price = new Price(symbol,
-                Double.parseDouble(priceFromBinance.getBidPrice()),
-                Double.parseDouble(priceFromBinance.getAskPrice()),
+                (Double.parseDouble(priceFromBinance.getBidPrice())),
+                (Double.parseDouble(priceFromBinance.getAskPrice())),
                 dateTime);
         return price;
     }

@@ -13,10 +13,8 @@ export default function CardSection(props) {
 		const length = prices.length;
 		if (length >= 2) {
 			if (prices[length - 1] > prices[length - 2]) {
-				console.log("comparing ", prices[length - 1], " > ", prices[length - 2])
 				return "increase";
 			} else if (prices[length - 1] < prices[length - 2]) {
-				console.log("comparing ", prices[length - 1], " < ", prices[length - 2])
 				return "decrease";
 			} else {
 				return "stagnant";
@@ -25,11 +23,11 @@ export default function CardSection(props) {
 	}
 
 	const renderBadgeCheck = (myPrice, otherPrice) => {
-		if (props.action == "Buy") {
+		if (props.action === "Buy") {
 			if (myPrice > otherPrice) {
 				return false;
 			} else return true;
-		} else if (props.action == "Sell") {
+		} else if (props.action === "Sell") {
 			if (myPrice < otherPrice) {
 				return false;
 			} else return true;
@@ -68,7 +66,7 @@ export default function CardSection(props) {
 					<div className="col-3 d-flex justify-content-end align-items-center">
 						<div className="d-flex justify-content-center">
 							{renderBadgeCheck(latestBinance, latestCoinbase) ?
-								<span class="badge bg-success">{props.action}</span> :
+								<span className="badge bg-success">{props.action}</span> :
 								<></>}
 						</div>
 					</div>
@@ -90,7 +88,7 @@ export default function CardSection(props) {
 					<div className="col-3 d-flex justify-content-end align-items-center">
 						<div className="d-flex justify-content-center">
 							{renderBadgeCheck(latestCoinbase, latestBinance) ?
-								<span class="badge bg-success suggestion-badge">{props.action}</span> :
+								<span className="badge bg-success suggestion-badge">{props.action}</span> :
 								<></>}
 						</div>
 					</div>

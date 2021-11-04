@@ -13,15 +13,16 @@ export default function Tracker(props) {
 	});
 
 	const [data, setData] = useState(sampleData);
+	const [isError, setError] = useState(false);
 
 	useInterval(() => {
 		axiosInstance.get().then(res => {
 			setData(res.data);
-			console.log(res.data);
-		}).catch(error => console.log(error))
+			setError(false)
+		}).catch(error => {
+			setError(true)
+		})
 	}, 5000)
-
-	// setData(sampleData);
 
 	return (
 		<div className="tracker">
@@ -32,6 +33,7 @@ export default function Tracker(props) {
 						<CryptoCard ticker={"BTC"} icon={bitcoin} data={data} />
 						<CryptoCard ticker={"ETH"} icon={ethereum} data={data} />
 					</div>
+					{isError && <p className="mt-3">Cannot connect to the server right now. Showing sample data.</p>}
 				</div>
 			</div>
 		</div>
